@@ -34,9 +34,23 @@
   </head>
   <body class="m-0">
     <!-- Background Music -->
-    <audio autoplay loop>
+    <audio id="bgMusic" autoplay loop muted>
       <source src="assets/music/backsound.mp3" type="audio/mpeg">
     </audio>
+
+    <script>
+      // Autoplay dengan sound setelah user interaction
+      const audio = document.getElementById('bgMusic');
+      const enableAudio = () => {
+        audio.muted = false;
+        audio.play().catch(err => console.log('Autoplay blocked:', err));
+        document.removeEventListener('click', enableAudio);
+      };
+      
+      // Unmute on first user interaction
+      document.addEventListener('click', enableAudio);
+      document.addEventListener('scroll', enableAudio);
+    </script>
     
     <section
       class="relative min-h-screen bg-cover bg-center"
