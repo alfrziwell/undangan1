@@ -35,23 +35,23 @@
   <body class="m-0">
     <!-- Background Music -->
     <audio id="bgMusic" autoplay loop muted>
-      <source src="assets/music/backsound.mp3" type="audio/mpeg">
+      <source src="assets/music/backsound.mp3" type="audio/mpeg" />
     </audio>
 
     <script>
       // Autoplay dengan sound setelah user interaction
-      const audio = document.getElementById('bgMusic');
+      const audio = document.getElementById("bgMusic");
       const enableAudio = () => {
         audio.muted = false;
-        audio.play().catch(err => console.log('Autoplay blocked:', err));
-        document.removeEventListener('click', enableAudio);
+        audio.play().catch((err) => console.log("Autoplay blocked:", err));
+        document.removeEventListener("click", enableAudio);
       };
-      
+
       // Unmute on first user interaction
-      document.addEventListener('click', enableAudio);
-      document.addEventListener('scroll', enableAudio);
+      document.addEventListener("click", enableAudio);
+      document.addEventListener("scroll", enableAudio);
     </script>
-    
+
     <section
       class="relative min-h-screen bg-cover bg-center"
       style="background-image: url(&quot;assets/background_page.png&quot;)"
@@ -114,16 +114,11 @@
     >
       <div class="w-full max-w-2xl text-white p-8 md:p-14 alice mx-4">
         <p class="leading-relaxed text-sm md:text-sm lg:text-base text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          mattis, justo in sagittis ullamcorper, lorem tortor condimentum ex,
-          vitae aliquet sem lectus ut arcu. Curabitur cursus in risus ut
-          laoreet. Duis condimentum magna at sagittis gravida. Vestibulum ante
-          ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-          curae; Aenean feugiat semper nunc in convallis. Quisque convallis
-          dolor ut euismod sagittis. Nulla eu commodo mi, iaculis tincidunt ex.
-          Nullam tincidunt rutrum enim, ut vestibulum tellus iaculis nec.
-          Phasellus tempus ex elit, ut dignissim felis rhoncus non. Aliquam erat
-          volutpat.
+          Di antara jutaan kemungkinan, semesta mempertemukan kami pada waktu
+          yang tepat. Dengan hati yang mantap, kami memilih untuk berjalan
+          berdampingan dalam pernikahan, menyatukan cinta dalam satu tujuan.
+          Kami berharap Anda dapat hadir dan turut mendoakan langkah awal kami
+          sebagai pasangan suami istri.
         </p>
       </div>
     </section>
@@ -136,7 +131,9 @@
       <div class="w-full max-w-[560px] mx-auto text-center px-8 py-16">
         <!-- Nama pengantin perempuan (Tangerine) -->
         <div class="mb-4">
-          <h3 class="tangerine font-semibold text-[#f3d7cf] text-[56px] sm:text-[72px] md:text-[96px] leading-none">
+          <h3
+            class="tangerine font-semibold text-[#f3d7cf] text-[56px] sm:text-[72px] md:text-[96px] leading-none"
+          >
             Widyanti Astuti
           </h3>
           <p class="alice text-[#f3d7cf] text-sm sm:text-base mt-2">
@@ -146,12 +143,18 @@
 
         <!-- Gambar tengah -->
         <div class="my-8">
-          <img src="assets/dan.png" alt="dan" class="mx-auto w-40 sm:w-48 md:w-56 h-auto" />
+          <img
+            src="assets/dan.png"
+            alt="dan"
+            class="mx-auto w-40 sm:w-48 md:w-56 h-auto"
+          />
         </div>
 
         <!-- Nama pengantin laki-laki (Tangerine) -->
         <div class="mt-4">
-          <h3 class="tangerine font-semibold text-[#f3d7cf] text-[48px] sm:text-[64px] md:text-[80px] leading-none">
+          <h3
+            class="tangerine font-semibold text-[#f3d7cf] text-[48px] sm:text-[64px] md:text-[80px] leading-none"
+          >
             Gilang Nugraha S.Kom
           </h3>
           <p class="alice text-[#f3d7cf] text-sm sm:text-base mt-2">
@@ -169,7 +172,11 @@
       <div class="w-full max-w-[420px] mx-auto px-6 py-10 text-[#7c2b2b]">
         <!-- Header image for Wedding Timeline -->
         <div class="mb-4">
-          <img src="assets/text_page4.png" alt="Wedding Timeline" class="mx-auto w-64 sm:w-80" />
+          <img
+            src="assets/text_page4.png"
+            alt="Wedding Timeline"
+            class="mx-auto w-64 sm:w-80"
+          />
         </div>
 
         <!-- Venue title (Alice, slightly bolder) -->
@@ -177,54 +184,92 @@
           <div>Kedai Selasih</div>
         </div>
         <div class="text-center alice text-xs sm:text-sm mb-6 leading-snug">
-          <div>Jl. Cikutra Baru VI No.34, Neglasari, Kec. Cibeunying Kaler,</div>
+          <div>
+            Jl. Cikutra Baru VI No.34, Neglasari, Kec. Cibeunying Kaler,
+          </div>
           <div>Kota Bandung</div>
         </div>
 
         <!-- Timeline container -->
         <div class="relative py-4">
           <!-- central vertical line - more prominent -->
-          <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-[#7c2b2b] -translate-x-1/2"></div>
+          <div
+            class="absolute left-1/2 top-0 bottom-0 w-1 bg-[#7c2b2b] -translate-x-1/2"
+          ></div>
 
           <!-- top marker dot -->
-          <div class="absolute left-1/2 -translate-x-1/2 top-16 w-3 h-3 bg-[#7c2b2b] rounded-full z-10"></div>
+          <div
+            class="absolute left-1/2 -translate-x-1/2 top-16 w-3 h-3 bg-[#7c2b2b] rounded-full z-10"
+          ></div>
 
           <!-- AKAD nikah section (right side) -->
           <div class="flex items-center justify-between mb-6">
             <!-- left side: ring icon -->
             <div class="w-1/2 flex justify-end pr-4">
-              <img src="assets/cincin.png" alt="cincin" class="w-32 sm:w-40 md:w-48 h-auto" />
+              <img
+                src="assets/cincin.png"
+                alt="cincin"
+                class="w-32 sm:w-40 md:w-48 h-auto"
+              />
             </div>
             <!-- right side: text - starts from center -->
             <div class="w-1/2 pl-4">
-              <h4 class="tangerine text-[28px] leading-snug text-left">Akad nikah</h4>
-              <div class="alice font-semibold text-sm text-left mt-1">09.00 – 10.00 WIB</div>
-              <div class="alice text-xs text-left mt-1 leading-tight">Jl. Cikutra Baru VI No.34, Neglasari, Kec. Cibeunying Kaler, Kota Bandung</div>
+              <h4 class="tangerine text-[28px] leading-snug text-left">
+                Akad nikah
+              </h4>
+              <div class="alice font-semibold text-sm text-left mt-1">
+                09.00 – 10.00 WIB
+              </div>
+              <div class="alice text-xs text-left mt-1 leading-tight">
+                Jl. Cikutra Baru VI No.34, Neglasari, Kec. Cibeunying Kaler,
+                Kota Bandung
+              </div>
             </div>
           </div>
 
           <!-- middle marker dot -->
-          <div class="absolute left-1/2 -translate-x-1/2 top-1/2 w-3 h-3 bg-[#7c2b2b] rounded-full z-10"></div>
+          <div
+            class="absolute left-1/2 -translate-x-1/2 top-1/2 w-3 h-3 bg-[#7c2b2b] rounded-full z-10"
+          ></div>
 
           <!-- ACARA resepsi section (left side) -->
           <div class="flex items-center justify-between mt-6">
             <!-- left side: text - ends at center -->
             <div class="w-1/2 pr-4">
-              <h4 class="tangerine text-[28px] leading-snug text-right">Acara resepsi</h4>
-              <div class="alice font-semibold text-sm text-right mt-1">10.00 – 12.00 WIB</div>
-              <div class="alice text-xs text-right mt-1 leading-tight">Jl. Cikutra Baru VI No.34, Neglasari, Kec. Cibeunying Kaler, Kota Bandung</div>
+              <h4 class="tangerine text-[28px] leading-snug text-right">
+                Acara resepsi
+              </h4>
+              <div class="alice font-semibold text-sm text-right mt-1">
+                10.00 – 12.00 WIB
+              </div>
+              <div class="alice text-xs text-right mt-1 leading-tight">
+                Jl. Cikutra Baru VI No.34, Neglasari, Kec. Cibeunying Kaler,
+                Kota Bandung
+              </div>
             </div>
             <!-- right side: curtain icon -->
             <div class="w-1/2 flex justify-start pl-4">
-              <img src="assets/tirai.png" alt="tirai" class="w-32 sm:w-40 md:w-48 h-auto" />
+              <img
+                src="assets/tirai.png"
+                alt="tirai"
+                class="w-32 sm:w-40 md:w-48 h-auto"
+              />
             </div>
           </div>
         </div>
 
         <!-- Footer date and maps -->
-        <div class="text-center mt-8 alice font-semibold text-base">31 - 05 - 2026</div>
+        <div class="text-center mt-8 alice font-semibold text-base">
+          31 - 05 - 2026
+        </div>
         <div class="text-center mt-3">
-          <a href="https://maps.app.goo.gl/6CU8iaznsMQYwJcSA" target="_blank" class="alice text-sm inline-block px-6 py-2 rounded-lg text-white font-semibold" style="background-color: #7c2b2b;">Open in google maps</a>
+          <a
+            href="https://maps.app.goo.gl/6CU8iaznsMQYwJcSA"
+            target="_blank"
+            class="alice text-sm inline-block px-6 py-2 rounded-lg text-white font-semibold"
+            style="background-color: #7c2b2b"
+            >Open in google maps</a
+          >
         </div>
       </div>
     </section>
@@ -237,17 +282,43 @@
       <div class="w-full max-w-[420px] mx-auto px-6 py-12 text-[#7c2b2b]">
         <!-- Our Love Story Section -->
         <div class="mb-16 sm:mb-20">
-          <h3 class="tangerine text-[56px] sm:text-[72px] md:text-[88px] leading-tight mb-6">Our Love Story</h3>
-          <p class="alice text-sm sm:text-base md:text-lg leading-relaxed text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis, justo in sagittis ullamcorper, lorem tortor condimentum ex, vitae aliquet sem lectus ut arcu. Curabitur cursus in risus ut laoreet. Duis condimentum magna at sagittis gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean feugiat semper nunc in convallis. Quisque convallis dolor ut euismod sagittis. Nulla eu commodo mi, iaculis tincidunt ex. Nullam tincidunt rutrum enim, ut vestibulum tellus iaculis nec. Phasellus tempus ex elit, ut dignissim felis rhoncus non. Aliquam erat volutpat. Nullam bibendum sem vel vulputate pharetra.
+          <h3
+            class="tangerine text-[56px] sm:text-[72px] md:text-[88px] leading-tight mb-6"
+          >
+            Our Love Story
+          </h3>
+          <p
+            class="alice text-sm sm:text-base md:text-lg leading-relaxed text-justify"
+          >
+            Semua berawal dari pertemuan yang tampak sederhana, tanpa rencana
+            besar dan tanpa kami sadari akan membawa pada perjalanan yang begitu
+            berarti. Seiring waktu, percakapan demi percakapan membuat kami
+            saling mengenal lebih dalam. Kami belajar memahami perbedaan,
+            menghargai kebiasaan, dan menemukan kenyamanan dalam kebersamaan.
+            Dari hal-hal kecil yang kami lalui bersama, tumbuh rasa percaya yang
+            perlahan berubah menjadi keyakinan. Hingga pada akhirnya, kami
+            menyadari bahwa perjalanan ini bukan lagi tentang dua orang yang
+            berjalan sendiri, melainkan tentang dua hati yang memilih untuk
+            melangkah berdampingan menuju masa depan yang sama.
           </p>
         </div>
 
         <!-- Wedding Gift Section -->
         <div class="mt-56 sm:mt-64">
-          <h3 class="tangerine text-[56px] sm:text-[72px] md:text-[88px] text-center leading-tight mb-6" style="color: #ffead5;">Wedding Gift</h3>
-          <div class="alice text-sm sm:text-base md:text-lg space-y-2" style="color: #ffead5;">
-            <p class="font-semibold">Kehadiran dan doa Anda adalah karunia terbesar bagi kami. Namun jika Anda ingin memberikan tanda kasih, berikut rincian:</p>
+          <h3
+            class="tangerine text-[56px] sm:text-[72px] md:text-[88px] text-center leading-tight mb-6"
+            style="color: #ffead5"
+          >
+            Wedding Gift
+          </h3>
+          <div
+            class="alice text-sm sm:text-base md:text-lg space-y-2"
+            style="color: #ffead5"
+          >
+            <p class="font-semibold">
+              Kehadiran dan doa Anda adalah karunia terbesar bagi kami. Namun
+              jika Anda ingin memberikan tanda kasih, berikut rincian:
+            </p>
             <div class="mt-4 space-y-1">
               <p><span class="font-semibold">Transfer Rekening:</span></p>
               <p>Bank BCA – 1234567890 a.n. Widy</p>
@@ -267,25 +338,60 @@
     <!-- Section keenam: background berbeda -->
     <section
       class="min-h-screen bg-cover bg-center flex items-center justify-center"
-      style="background-image: url(&quot;assets/background_page6.png&quot;); margin: 0; padding: 0;"
+      style="
+        background-image: url(&quot;assets/background_page6.png&quot;);
+        margin: 0;
+        padding: 0;
+      "
     >
       <div class="w-full max-w-[420px] mx-auto px-6 py-12">
         <!-- RSVP Header -->
-        <h2 class="tangerine text-[64px] sm:text-[80px] text-center leading-tight mb-2" style="color: #7c2b2b;">RSVP</h2>
-        <p class="alice text-sm text-center mb-8" style="color: #7c2b2b;">Silahkan konfirmasi kehadiran dibawah ini</p>
+        <h2
+          class="tangerine text-[64px] sm:text-[80px] text-center leading-tight mb-2"
+          style="color: #7c2b2b"
+        >
+          RSVP
+        </h2>
+        <p class="alice text-sm text-center mb-8" style="color: #7c2b2b">
+          Silahkan konfirmasi kehadiran dibawah ini
+        </p>
 
         <!-- RSVP Form -->
         <form class="space-y-6">
           <!-- Nama lengkap -->
           <div>
-            <label class="alice block text-sm font-semibold mb-2" style="color: #7c2b2b;">Nama lengkap</label>
-            <input type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 rounded-lg alice text-sm" style="background-color: #f5ede0; border: 2px solid #d4b5a0; color: #7c2b2b;" />
+            <label
+              class="alice block text-sm font-semibold mb-2"
+              style="color: #7c2b2b"
+              >Nama lengkap</label
+            >
+            <input
+              type="text"
+              placeholder="Masukkan nama lengkap"
+              class="w-full px-4 py-3 rounded-lg alice text-sm"
+              style="
+                background-color: #f5ede0;
+                border: 2px solid #d4b5a0;
+                color: #7c2b2b;
+              "
+            />
           </div>
 
           <!-- Konfirmasi kehadiran -->
           <div>
-            <label class="alice block text-sm font-semibold mb-2" style="color: #7c2b2b;">Konfirmasi kehadiran</label>
-            <select class="w-full px-4 py-3 rounded-lg alice text-sm" style="background-color: #f5ede0; border: 2px solid #d4b5a0; color: #7c2b2b;">
+            <label
+              class="alice block text-sm font-semibold mb-2"
+              style="color: #7c2b2b"
+              >Konfirmasi kehadiran</label
+            >
+            <select
+              class="w-full px-4 py-3 rounded-lg alice text-sm"
+              style="
+                background-color: #f5ede0;
+                border: 2px solid #d4b5a0;
+                color: #7c2b2b;
+              "
+            >
               <option>Kehadiran</option>
               <option>Hadir</option>
               <option>Tidak Hadir</option>
@@ -295,18 +401,50 @@
 
           <!-- Jumlah tamu -->
           <div>
-            <label class="alice block text-sm font-semibold mb-2" style="color: #7c2b2b;">Jumlah tamu</label>
-            <input type="text" placeholder="Masukkan jumlah tamu akan datang" class="w-full px-4 py-3 rounded-lg alice text-sm" style="background-color: #f5ede0; border: 2px solid #d4b5a0; color: #7c2b2b;" />
+            <label
+              class="alice block text-sm font-semibold mb-2"
+              style="color: #7c2b2b"
+              >Jumlah tamu</label
+            >
+            <input
+              type="text"
+              placeholder="Masukkan jumlah tamu akan datang"
+              class="w-full px-4 py-3 rounded-lg alice text-sm"
+              style="
+                background-color: #f5ede0;
+                border: 2px solid #d4b5a0;
+                color: #7c2b2b;
+              "
+            />
           </div>
 
           <!-- Ucapan / do'a -->
           <div>
-            <label class="alice block text-sm font-semibold mb-2" style="color: #7c2b2b;">Ucapan / do'a</label>
-            <textarea placeholder="Berikan ucapan untuk pengantin" rows="5" class="w-full px-4 py-3 rounded-lg alice text-sm resize-none" style="background-color: #f5ede0; border: 2px solid #d4b5a0; color: #7c2b2b;"></textarea>
+            <label
+              class="alice block text-sm font-semibold mb-2"
+              style="color: #7c2b2b"
+              >Ucapan / do'a</label
+            >
+            <textarea
+              placeholder="Berikan ucapan untuk pengantin"
+              rows="5"
+              class="w-full px-4 py-3 rounded-lg alice text-sm resize-none"
+              style="
+                background-color: #f5ede0;
+                border: 2px solid #d4b5a0;
+                color: #7c2b2b;
+              "
+            ></textarea>
           </div>
 
           <!-- Submit Button -->
-          <button type="submit" class="w-full py-3 rounded-lg alice font-semibold text-white text-sm" style="background-color: #7c2b2b;">Kirim sekarang</button>
+          <button
+            type="submit"
+            class="w-full py-3 rounded-lg alice font-semibold text-white text-sm"
+            style="background-color: #7c2b2b"
+          >
+            Kirim sekarang
+          </button>
         </form>
       </div>
     </section>
@@ -314,17 +452,36 @@
     <!-- Section ketujuh: background berbeda -->
     <section
       class="w-full bg-contain bg-center bg-no-repeat flex items-center justify-center relative"
-      style="background-image: url(&quot;assets/background_page7.png&quot;); aspect-ratio: 9/5; height: auto; margin: 0; padding: 0;"
+      style="
+        background-image: url(&quot;assets/background_page7.png&quot;);
+        aspect-ratio: 9/5;
+        height: auto;
+        margin: 0;
+        padding: 0;
+      "
     >
       <!-- Terimakasih image centered -->
-      <div class="absolute left-1/2 top-2/5 transform -translate-x-1/2 -translate-y-1/2">
-        <img src="assets/text-page7.png" alt="Terimakasih" class="w-80 sm:w-full md:w-full h-auto" />
+      <div
+        class="absolute left-1/2 top-2/5 transform -translate-x-1/2 -translate-y-1/2"
+      >
+        <img
+          src="assets/text-page7.png"
+          alt="Terimakasih"
+          class="w-80 sm:w-full md:w-full h-auto"
+        />
       </div>
-      
+
       <!-- Names and date at bottom right -->
       <div class="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 text-right">
-        <h3 class="tangerine text-[24px] sm:text-[32px] md:text-[40px] leading-tight mb-1" style="color: white;">Widy &amp; Gilang</h3>
-        <p class="alice text-xs sm:text-sm md:text-base" style="color: white;">Bandung, 31 - 05 - 2026</p>
+        <h3
+          class="tangerine text-[24px] sm:text-[32px] md:text-[40px] leading-tight mb-1"
+          style="color: white"
+        >
+          Widy &amp; Gilang
+        </h3>
+        <p class="alice text-xs sm:text-sm md:text-base" style="color: white">
+          Bandung, 31 - 05 - 2026
+        </p>
       </div>
     </section>
   </body>
