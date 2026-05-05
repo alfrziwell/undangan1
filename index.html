@@ -151,6 +151,43 @@
         animation: scaleIn 1s ease-out forwards;
         opacity: 0;
       }
+
+      /* Custom Select Styling */
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237c2b2b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 36px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      select:hover {
+        border-color: #a86f6f !important;
+        box-shadow: 0 2px 8px rgba(124, 43, 43, 0.15);
+      }
+
+      select:focus {
+        outline: none;
+        border-color: #7c2b2b !important;
+        box-shadow: 0 0 0 3px rgba(124, 43, 43, 0.1);
+      }
+
+      select option {
+        background-color: #f5ede0;
+        color: #7c2b2b;
+        padding: 10px;
+      }
+
+      /* Scroll Animation */
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      .animate-in {
+        animation: fadeInUp 0.8s ease-out forwards !important;
+      }
     </style>
   </head>
   <body class="m-0">
@@ -171,6 +208,28 @@
       // Unmute on first user interaction
       document.addEventListener("click", enableAudio);
       document.addEventListener("scroll", enableAudio);
+
+      // Intersection Observer untuk animasi entrance
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe semua elemen dengan class animate-on-scroll
+      document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".animate-on-scroll").forEach(el => {
+          observer.observe(el);
+        });
+      });
     </script>
 
     <section
@@ -233,7 +292,7 @@
       class="min-h-screen bg-cover bg-center flex items-center justify-center"
       style="background-image: url(&quot;assets/background_page2.png&quot;)"
     >
-      <div class="w-full max-w-2xl text-white p-8 md:p-14 alice mx-4 animate-fade-in">
+      <div class="w-full max-w-2xl text-white p-8 md:p-14 alice mx-4 animate-fade-in animate-on-scroll">
         <p class="leading-relaxed text-sm md:text-sm lg:text-base text-justify">
           Di antara jutaan kemungkinan, semesta mempertemukan kami pada waktu
           yang tepat. Dengan hati yang mantap, kami memilih untuk berjalan
@@ -290,7 +349,7 @@
       class="min-h-screen bg-cover bg-center flex items-center justify-center"
       style="background-image: url(&quot;assets/background_page4.png&quot;)"
     >
-      <div class="w-full max-w-[420px] mx-auto px-6 py-10 text-[#7c2b2b]">
+      <div class="w-full max-w-[420px] mx-auto px-6 py-10 text-[#7c2b2b] animate-on-scroll">
         <!-- Header image for Wedding Timeline -->
         <div class="mb-4">
           <img
@@ -400,7 +459,7 @@
       class="min-h-screen bg-cover bg-center flex items-center justify-center"
       style="background-image: url(&quot;assets/background_page5.png&quot;)"
     >
-      <div class="w-full max-w-[420px] mx-auto px-6 py-12 text-[#7c2b2b]">
+      <div class="w-full max-w-[420px] mx-auto px-6 py-12 text-[#7c2b2b] animate-on-scroll">
         <!-- Our Love Story Section -->
         <div class="mb-16 sm:mb-20 animate-fade-in">
           <h3
@@ -465,7 +524,7 @@
         padding: 0;
       "
     >
-      <div class="w-full max-w-[420px] mx-auto px-6 py-12">
+      <div class="w-full max-w-[420px] mx-auto px-6 py-12 animate-on-scroll">
         <!-- RSVP Header -->
         <h2
           class="tangerine text-[64px] sm:text-[80px] text-center leading-tight mb-2"
