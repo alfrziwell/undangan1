@@ -30,6 +30,127 @@
       .alice {
         font-family: "Alice", serif;
       }
+
+      /* Animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+
+      /* Apply animations */
+      h1 {
+        animation: fadeInDown 1s ease-out;
+      }
+
+      h2 {
+        animation: scaleIn 1.2s ease-out 0.3s both;
+      }
+
+      h3 {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      h4 {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .animate-icon {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .animate-slide-left {
+        animation: slideInLeft 1s ease-out;
+      }
+
+      .animate-slide-right {
+        animation: slideInRight 1s ease-out;
+      }
+
+      .animate-pulse-custom {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .animate-fade-in {
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0;
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 1s ease-out forwards;
+        opacity: 0;
+      }
     </style>
   </head>
   <body class="m-0">
@@ -69,27 +190,27 @@
             src="assets/icon_home.png"
             alt=""
             aria-hidden="true"
-            class="z-40 w-[78vw] sm:w-[62vw] md:w-[48vw] lg:w-[40vw] max-w-[920px]"
+            class="z-40 w-[78vw] sm:w-[62vw] md:w-[48vw] lg:w-[40vw] max-w-[920px] animate-float"
           />
           <div
             class="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none transform translate-y-6 sm:translate-y-10 md:translate-y-16 lg:translate-y-20"
           >
             <h2
-              class="tangerine text-white leading-none text-[28px] sm:text-[36px] md:text-[44px] lg:text-[56px]"
-              style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5)"
+              class="tangerine text-white leading-none text-[28px] sm:text-[36px] md:text-[44px] lg:text-[56px] animate-float"
+              style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);"
             >
               Widy &amp; Gilang
             </h2>
             <p
-              class="text-white text-sm md:text-base mt-2"
-              style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4)"
+              class="text-white text-sm md:text-base mt-2 animate-float"
+              style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);"
             >
               31 - 05 - 2026
             </p>
             <div class="mt-3 flex justify-center">
               <svg
                 aria-hidden="true"
-                class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white animate-bounce"
+                class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white animate-bounce animate-pulse-custom"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -112,7 +233,7 @@
       class="min-h-screen bg-cover bg-center flex items-center justify-center"
       style="background-image: url(&quot;assets/background_page2.png&quot;)"
     >
-      <div class="w-full max-w-2xl text-white p-8 md:p-14 alice mx-4">
+      <div class="w-full max-w-2xl text-white p-8 md:p-14 alice mx-4 animate-fade-in">
         <p class="leading-relaxed text-sm md:text-sm lg:text-base text-justify">
           Di antara jutaan kemungkinan, semesta mempertemukan kami pada waktu
           yang tepat. Dengan hati yang mantap, kami memilih untuk berjalan
@@ -130,7 +251,7 @@
     >
       <div class="w-full max-w-[560px] mx-auto text-center px-8 py-16">
         <!-- Nama pengantin perempuan (Tangerine) -->
-        <div class="mb-4">
+        <div class="mb-4 animate-fade-in" style="animation-delay: 0.2s;">
           <h3
             class="tangerine font-semibold text-[#f3d7cf] text-[56px] sm:text-[72px] md:text-[96px] leading-none"
           >
@@ -142,16 +263,16 @@
         </div>
 
         <!-- Gambar tengah -->
-        <div class="my-8">
+        <div class="my-8 animate-scale-in" style="animation-delay: 0.4s;">
           <img
             src="assets/dan.png"
             alt="dan"
-            class="mx-auto w-40 sm:w-48 md:w-56 h-auto"
+            class="mx-auto w-40 sm:w-48 md:w-56 h-auto animate-float"
           />
         </div>
 
         <!-- Nama pengantin laki-laki (Tangerine) -->
-        <div class="mt-4">
+        <div class="mt-4 animate-fade-in" style="animation-delay: 0.6s;">
           <h3
             class="tangerine font-semibold text-[#f3d7cf] text-[48px] sm:text-[64px] md:text-[80px] leading-none"
           >
@@ -205,11 +326,11 @@
           <!-- AKAD nikah section (right side) -->
           <div class="flex items-center justify-between mb-6">
             <!-- left side: ring icon -->
-            <div class="w-1/2 flex justify-end pr-4">
+            <div class="w-1/2 flex justify-end pr-4 animate-slide-right">
               <img
                 src="assets/cincin.png"
                 alt="cincin"
-                class="w-32 sm:w-40 md:w-48 h-auto"
+                class="w-32 sm:w-40 md:w-48 h-auto animate-icon"
               />
             </div>
             <!-- right side: text - starts from center -->
@@ -248,11 +369,11 @@
               </div>
             </div>
             <!-- right side: curtain icon -->
-            <div class="w-1/2 flex justify-start pl-4">
+            <div class="w-1/2 flex justify-start pl-4 animate-slide-left">
               <img
                 src="assets/tirai.png"
                 alt="tirai"
-                class="w-32 sm:w-40 md:w-48 h-auto"
+                class="w-32 sm:w-40 md:w-48 h-auto animate-icon"
               />
             </div>
           </div>
@@ -281,7 +402,7 @@
     >
       <div class="w-full max-w-[420px] mx-auto px-6 py-12 text-[#7c2b2b]">
         <!-- Our Love Story Section -->
-        <div class="mb-16 sm:mb-20">
+        <div class="mb-16 sm:mb-20 animate-fade-in">
           <h3
             class="tangerine text-[56px] sm:text-[72px] md:text-[88px] leading-tight mb-6"
           >
@@ -357,7 +478,7 @@
         </p>
 
         <!-- RSVP Form -->
-        <form class="space-y-6">
+        <form class="space-y-6 animate-fade-in">
           <!-- Nama lengkap -->
           <div>
             <label
@@ -462,7 +583,7 @@
     >
       <!-- Terimakasih image centered -->
       <div
-        class="absolute left-1/2 top-2/5 transform -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-2/5 transform -translate-x-1/2 -translate-y-1/2 animate-scale-in"
       >
         <img
           src="assets/text-page7.png"
@@ -472,7 +593,7 @@
       </div>
 
       <!-- Names and date at bottom right -->
-      <div class="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 text-right">
+      <div class="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 text-right animate-fade-in" style="animation-delay: 0.5s;">
         <h3
           class="tangerine text-[24px] sm:text-[32px] md:text-[40px] leading-tight mb-1"
           style="color: white"
