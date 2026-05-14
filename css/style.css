@@ -269,7 +269,8 @@ animation: fadeInUp 0.8s ease-out forwards !important;
 .decorative-front {
     position: absolute;
     left: 50%;
-    top: 56%;
+    /* place decorative image closer to hero on small screens */
+    top: 52%;
     transform: translate(-50%, -50%);
     width: 78vw;
     max-width: 920px;
@@ -281,13 +282,13 @@ animation: fadeInUp 0.8s ease-out forwards !important;
 
 /* keep responsiveness using same breakpoints as other images */
 @media (min-width: 640px) {
-    .decorative-front { width: 62vw; }
+    .decorative-front { width: 62vw; top: 54%; }
 }
 @media (min-width: 768px) {
     .decorative-front { width: 48vw; }
 }
 @media (min-width: 1024px) {
-    .decorative-front { width: 40vw; }
+    .decorative-front { width: 40vw; top: 56%; }
 }
 
 @media (min-width: 768px) {
