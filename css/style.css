@@ -291,6 +291,26 @@ animation: fadeInUp 0.8s ease-out forwards !important;
     .decorative-front { width: 40vw; top: 56%; }
 }
 
+/* Audio toggle fallback button (hidden by default, shown by JS when needed) */
+.audio-toggle {
+    display: none;
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 11000;
+    background-color: #7c2b2b;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-family: Alice, serif;
+    font-size: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.audio-toggle.show { display: inline-flex; align-items: center; gap: 8px; }
+.audio-toggle:active { transform: translateY(1px); }
+
 @media (min-width: 768px) {
     .corner-flower { width: 50vw; }
 }

@@ -3,9 +3,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const audio = document.getElementById("bgMusic");
 
     if (audio) {
+        // Attempt to start playback while muted so browsers allow it,
+        // then unmute on first user gesture.
+        try { audio.muted = true; audio.play().catch(() => {}); } catch(e) {}
+
         const enableAudio = () => {
+            // Unmute on user interaction and ensure playback resumes
             audio.muted = false;
-            audio.play().catch((err) => console.log("Autoplay blocked:", err));
+            // Try to play after unmuting; some browsers still require user gesture
+            audio.play().catch((err) => console.debug("Play after gesture failed:", err));
             removeAudioListeners();
         };
 
@@ -20,11 +26,41 @@ document.addEventListener("DOMContentLoaded", function() {
             document.removeEventListener("keydown", keyHandler);
         };
 
-        // Use passive once listeners where supported
+        // Attach one-time listeners for common user gestures
         document.addEventListener("click", enableAudio, { once: true });
         document.addEventListener("touchstart", enableAudio, { once: true });
         document.addEventListener("scroll", enableAudio, { once: true });
         document.addEventListener("keydown", keyHandler, { once: true });
+    }
+
+    // Audio toggle fallback: show button if playback still blocked after a short delay
+    const audioToggle = document.getElementById('audioToggle');
+    if (audio && audioToggle) {
+        const showIfBlocked = () => {
+            // if audio is paused or still muted, show toggle
+            if (audio.paused || audio.muted) {
+                audioToggle.classList.add('show');
+                audioToggle.addEventListener('click', () => {
+                    if (audio.paused) {
+                        audio.muted = false;
+                        audio.play().catch(() => {});
+                        audioToggle.textContent = 'Pause music';
+                        audioToggle.setAttribute('aria-pressed', 'true');
+                    } else {
+                        audio.pause();
+                        audioToggle.textContent = 'Play music';
+                        audioToggle.setAttribute('aria-pressed', 'false');
+                    }
+                });
+            }
+        };
+
+        // Check after 700ms; if gesture already enabled audio, this will be a no-op
+        setTimeout(showIfBlocked, 700);
+        // Also hide button when user interacts and enableAudio runs
+        const hideOnGesture = () => { audioToggle.classList.remove('show'); };
+        document.addEventListener('click', hideOnGesture, { once: true });
+        document.addEventListener('touchstart', hideOnGesture, { once: true });
     }
 
     // Intersection Observer untuk animasi entrance
