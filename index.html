@@ -3,269 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Undangan — Background Only</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alice&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .tangerine {
-        font-family: "Tangerine", cursive;
-      }
-      .text-shadow {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
-      }
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css">
 
-      .alice {
-        font-family: "Alice", serif;
-      }
 
-      /* Animations */
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes scaleIn {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-      }
-
-      @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes pulse {
-        0%, 100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.7;
-        }
-      }
-
-      /* Apply animations */
-      h1 {
-        animation: fadeInDown 1s ease-out;
-      }
-
-      h2 {
-        animation: scaleIn 1.2s ease-out 0.3s both;
-      }
-
-      h3 {
-        animation: fadeInUp 1s ease-out;
-      }
-
-      h4 {
-        animation: fadeInUp 1s ease-out;
-      }
-
-      .animate-icon {
-        animation: float 3s ease-in-out infinite;
-      }
-
-      .animate-float {
-        animation: float 4s ease-in-out infinite;
-      }
-
-      .animate-slide-left {
-        animation: slideInLeft 1s ease-out;
-      }
-
-      .animate-slide-right {
-        animation: slideInRight 1s ease-out;
-      }
-
-      .animate-pulse-custom {
-        animation: pulse 2s ease-in-out infinite;
-      }
-
-      .animate-fade-in {
-        animation: fadeInUp 1s ease-out forwards;
-        opacity: 0;
-      }
-
-      .animate-scale-in {
-        animation: scaleIn 1s ease-out forwards;
-        opacity: 0;
-      }
-
-      /* Custom Select Styling */
-      select {
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237c2b2b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 12px center;
-        padding-right: 36px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      select:hover {
-        border-color: #a86f6f !important;
-        box-shadow: 0 2px 8px rgba(124, 43, 43, 0.15);
-      }
-
-      select:focus {
-        outline: none;
-        border-color: #7c2b2b !important;
-        box-shadow: 0 0 0 3px rgba(124, 43, 43, 0.1);
-      }
-
-      select option {
-        background-color: #f5ede0;
-        color: #7c2b2b;
-        padding: 10px;
-      }
-
-      /* Scroll Animation */
-      .animate-on-scroll {
-        opacity: 0;
-      }
-
-      .animate-in {
-        animation: fadeInUp 0.8s ease-out forwards !important;
-      }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/script.js" defer></script>
   </head>
+
   <body class="m-0">
     <!-- Background Music -->
     <audio id="bgMusic" autoplay loop muted>
       <source src="assets/music/backsound.mp3" type="audio/mpeg" />
     </audio>
 
-    <script>
-      // Autoplay dengan sound setelah user interaction
-      const audio = document.getElementById("bgMusic");
-      const enableAudio = () => {
-        audio.muted = false;
-        audio.play().catch((err) => console.log("Autoplay blocked:", err));
-        document.removeEventListener("click", enableAudio);
-      };
-
-      // Unmute on first user interaction
-      document.addEventListener("click", enableAudio);
-      document.addEventListener("scroll", enableAudio);
-
-      // Intersection Observer untuk animasi entrance
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px"
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Observe semua elemen dengan class animate-on-scroll
-      document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll(".animate-on-scroll").forEach(el => {
-          observer.observe(el);
-        });
-      });
-    </script>
-
+    <!-- First section: full-screen background with centered content -->
     <section
-      class="relative min-h-screen bg-cover bg-center"
-      style="background-image: url(&quot;assets/background_page.png&quot;)"
+      class="relative min-h-screen bg-cover bg-center overflow-visible section-hero"
+      style="background-image: url(&quot;assets/bg_section1.png&quot;)"
     >
-      <div
-        class="absolute left-1/2 top-[56%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none select-none"
-      >
-        <h1
-          class="tangerine text-[#7c2b2b] leading-none z-50 mb-3 text-[48px] sm:text-[64px] md:text-[96px] lg:text-[128px]"
-        >
+      <!-- overlay warna #ffead5 50% opacity -->
+      <div class="section-overlay" aria-hidden="true"></div>
+
+      <!-- decorative corner flowers (partially visible) -->
+      <img src="assets/flower.png" alt="" aria-hidden="true" class="corner-flower top-left" />
+      <img src="assets/flower_flip.png" alt="" aria-hidden="true" class="corner-flower bottom-right" />
+
+      <!-- main decorative image moved out so it can sit above all layers -->
+      <img src="assets/icon_home.png" alt="" aria-hidden="true" class="decorative-front" />
+
+      <div class="absolute left-1/2 top-[30%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col w-full items-center pointer-events-none select-none content-front gap-4">
+        <h1 class="tangerine text-[#7c2b2b] leading-none z-50 mb-3 text-[48px] sm:text-[64px] md:text-[96px] lg:text-[128px] mx-auto">
           The Wedding of
         </h1>
-        <div class="relative">
-          <img
-            src="assets/icon_home.png"
-            alt=""
-            aria-hidden="true"
-            class="z-40 w-[78vw] sm:w-[62vw] md:w-[48vw] lg:w-[40vw] max-w-[920px] animate-float"
-          />
-          <div
-            class="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none transform translate-y-6 sm:translate-y-10 md:translate-y-16 lg:translate-y-20"
-          >
+      </div>
+
+          <div class="absolute inset-0 top-[50%] flex flex-col items-center z-60 pointer-events-none transform translate-y-6 sm:translate-y-10 md:translate-y-16 lg:translate-y-20 w-full">
             <h2
-              class="tangerine text-white leading-none text-[28px] sm:text-[36px] md:text-[44px] lg:text-[56px] animate-float"
+              class="tangerine text-white leading-none text-[28px] sm:text-[36px] md:text-[44px] lg:text-[56px] animate-float text-center w-full"
               style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);"
             >
-              Widy &amp; Gilang
+            Widy &amp; Gilang
             </h2>
-            <p
-              class="text-white text-sm md:text-base mt-2 animate-float"
-              style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);"
-            >
+
+            <p class="text-white text-sm md:text-base mt-2 animate-float" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);">
               31 - 05 - 2026
             </p>
+
             <div class="mt-3 flex justify-center">
               <svg
                 aria-hidden="true"
@@ -275,6 +65,7 @@
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
+
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -284,14 +75,16 @@
               </svg>
             </div>
           </div>
-        </div>
-      </div>
+      <!-- single flower overlapping into section2 -->
+      <img src="assets/flower_single.png" alt="" aria-hidden="true" class="flower-single" />
     </section>
-    <!-- Section kedua: background berbeda -->
+
+    <!-- Second section: different background -->
     <section
-      class="min-h-screen bg-cover bg-center flex items-center justify-center"
-      style="background-image: url(&quot;assets/background_page2.png&quot;)"
+      class="bg-contain bg-center overflow-visible z-10 flex items-center justify-center py-10 md:py-24"
+      style="background-image: url(&quot;assets/bg_section2.png&quot;)"
     >
+
       <div class="w-full max-w-2xl text-white p-8 md:p-14 alice mx-4 animate-fade-in animate-on-scroll">
         <p class="leading-relaxed text-sm md:text-sm lg:text-base text-justify">
           Di antara jutaan kemungkinan, semesta mempertemukan kami pada waktu
@@ -305,17 +98,21 @@
 
     <!-- Section ketiga: background berbeda -->
     <section
-      class="min-h-screen bg-cover bg-center flex items-center justify-center"
-      style="background-image: url(&quot;assets/background_page3.png&quot;)"
+      class="relative min-h-screen bg-cover bg-center flex items-center justify-center"
+      style="background-image: url(&quot;assets/bg_section3.png&quot;)"
     >
-      <div class="w-full max-w-[560px] mx-auto text-center px-8 py-16">
+
+      <!-- corner flowers for section 3 -->
+      <img src="assets/flower.png" alt="" aria-hidden="true" class="corner-flower top-left pointer-events-none" />
+      <img src="assets/flower_flip.png" alt="" aria-hidden="true" class="corner-flower bottom-right pointer-events-none" />
+
+      <div class="w-full max-w-[560px] mx-auto text-center py-16">
         <!-- Nama pengantin perempuan (Tangerine) -->
         <div class="mb-4 animate-fade-in" style="animation-delay: 0.2s;">
-          <h3
-            class="tangerine font-semibold text-[#f3d7cf] text-[56px] sm:text-[72px] md:text-[96px] leading-none"
-          >
+          <h3 class="tangerine font-semibold text-[#f3d7cf] text-[56px] sm:text-[72px] md:text-[96px] leading-none">
             Widyanti Astuti
           </h3>
+          
           <p class="alice text-[#f3d7cf] text-sm sm:text-base mt-2">
             Putri dari Bp. Yayan Wahyan &amp; Ibu Nurnaeni (Almh)
           </p>
@@ -331,9 +128,9 @@
         </div>
 
         <!-- Nama pengantin laki-laki (Tangerine) -->
-        <div class="mt-4 animate-fade-in" style="animation-delay: 0.6s;">
+        <div class="mt-4 animate-fade-in w-full" style="animation-delay: 0.6s;">
           <h3
-            class="tangerine font-semibold text-[#f3d7cf] text-[48px] sm:text-[64px] md:text-[80px] leading-none"
+            class="tangerine w-full font-semibold text-[#f3d7cf] text-[38px] sm:text-[54px] md:text-[70px] leading-none"
           >
             Gilang Nugraha S.Kom
           </h3>
@@ -344,12 +141,14 @@
       </div>
     </section>
 
-    <!-- Section keempat: background berbeda -->
+    <!-- Section keempat: background dibuat sama seperti Section 1 -->
     <section
-      class="min-h-screen bg-cover bg-center flex items-center justify-center"
-      style="background-image: url(&quot;assets/background_page4.png&quot;)"
+      class="relative min-h-screen bg-cover bg-center flex items-start justify-center pt-12 md:pt-20"
+      style="background-image: url(&quot;assets/bg_section4.png&quot;)"
     >
-      <div class="w-full max-w-[420px] mx-auto px-6 py-10 text-[#7c2b2b] animate-on-scroll">
+      <!-- overlay warna #ffead5 50% opacity (no corner flowers here) -->
+      <div class="section-overlay" aria-hidden="true"></div>
+      <div class="w-full max-w-[420px] mx-auto px-6 pt-6 pb-10 text-[#7c2b2b] animate-on-scroll content-front">
         <!-- Header image for Wedding Timeline -->
         <div class="mb-4">
           <img

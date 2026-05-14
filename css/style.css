@@ -1,0 +1,320 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffead5; /* cream page background */
+}
+
+.tangerine {
+font-family: "Tangerine", cursive;
+}
+
+.text-shadow {
+text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.alice {
+font-family: "Alice", serif;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+from {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+@keyframes fadeInUp {
+from {
+    opacity: 0;
+    transform: translateY(30px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+@keyframes scaleIn {
+from {
+    opacity: 0;
+    transform: scale(0.8);
+}
+to {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+
+@keyframes float {
+0%, 100% {
+    transform: translateY(0px);
+}
+50% {
+    transform: translateY(-15px);
+}
+}
+
+@keyframes slideInLeft {
+from {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+to {
+    opacity: 1;
+    transform: translateX(0);
+}
+}
+
+@keyframes slideInRight {
+from {
+    opacity: 0;
+    transform: translateX(50px);
+}
+to {
+    opacity: 1;
+    transform: translateX(0);
+}
+}
+
+@keyframes pulse {
+0%, 100% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.7;
+}
+}
+
+/* Apply animations */
+h1 {
+animation: fadeInDown 1s ease-out;
+}
+
+h2 {
+animation: scaleIn 1.2s ease-out 0.3s both;
+}
+
+h3 {
+animation: fadeInUp 1s ease-out;
+}
+
+h4 {
+animation: fadeInUp 1s ease-out;
+}
+
+.animate-icon {
+animation: float 3s ease-in-out infinite;
+}
+
+.animate-float {
+animation: float 4s ease-in-out infinite;
+}
+
+.animate-slide-left {
+animation: slideInLeft 1s ease-out;
+}
+
+.animate-slide-right {
+animation: slideInRight 1s ease-out;
+}
+
+.animate-pulse-custom {
+animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-fade-in {
+animation: fadeInUp 1s ease-out forwards;
+opacity: 0;
+}
+
+.animate-scale-in {
+animation: scaleIn 1s ease-out forwards;
+opacity: 0;
+}
+
+/* Custom Select Styling */
+select {
+appearance: none;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237c2b2b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 12px center;
+padding-right: 36px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+select:hover {
+border-color: #a86f6f !important;
+box-shadow: 0 2px 8px rgba(124, 43, 43, 0.15);
+}
+
+select:focus {
+outline: none;
+border-color: #7c2b2b !important;
+box-shadow: 0 0 0 3px rgba(124, 43, 43, 0.1);
+}
+
+select option {
+background-color: #f5ede0;
+color: #7c2b2b;
+padding: 10px;
+}
+
+/* Scroll Animation */
+.animate-on-scroll {
+opacity: 0;
+}
+
+.animate-in {
+animation: fadeInUp 0.8s ease-out forwards !important;
+}
+
+/* Section overlay and corner flower decorations */
+.section-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 234, 213, 0.5); /* #ffead5 at 50% */
+    z-index: 30;
+    pointer-events: none;
+}
+
+/* Ensure main content (text & arrow) sits above decorative layers */
+.content-front {
+    position: relative;
+    z-index: 10001; /* very high so text & arrow appear above decorative-front */
+}
+
+.corner-flower {
+    position: absolute;
+    width: 60vw;
+    max-width: 640px;
+    height: auto;
+    z-index: 30; /* keep corner flowers behind decorative and content */
+    pointer-events: none;
+    will-change: transform, opacity;
+    opacity: 1;
+}
+
+.corner-flower.top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-35%, -35%) rotate(20deg);
+    transform-origin: top left;
+    /* curtain-like entrance: start large then zoom out to normal */
+    animation: flowerZoomTopLeft 2000ms cubic-bezier(.22,.9,.25,1) both;
+    animation-delay: 150ms;
+}
+
+.corner-flower.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(35%, 35%) rotate(20deg);
+    transform-origin: bottom right;
+    animation: flowerZoomBottomRight 2000ms cubic-bezier(.22,.9,.25,1) both;
+    animation-delay: 200ms;
+}
+
+@keyframes flowerZoomTopLeft {
+    from {
+        transform: translate(-35%, -35%) rotate(20deg) scale(1.6);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-35%, -35%) rotate(20deg) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flowerZoomBottomRight {
+    from {
+        transform: translate(35%, 35%) rotate(20deg) scale(1.6);
+        opacity: 0;
+    }
+    to {
+        transform: translate(35%, 35%) rotate(20deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Bring decorative element above corner flowers */
+.decorative-front {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    width: 78vw;
+    max-width: 920px;
+    height: auto;
+    z-index: 40; /* sits below main text (z-60) but above overlay/flowers */
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* keep responsiveness using same breakpoints as other images */
+@media (min-width: 640px) {
+    .decorative-front { width: 62vw; }
+}
+@media (min-width: 768px) {
+    .decorative-front { width: 48vw; }
+}
+@media (min-width: 1024px) {
+    .decorative-front { width: 40vw; }
+}
+
+@media (min-width: 768px) {
+    .corner-flower { width: 50vw; }
+}
+
+@media (min-width: 1024px) {
+    .corner-flower { width: 40vw; }
+}
+
+/* Section hero extension and single-flower overlap styling */
+.section-hero {
+    /* extend lower padding so section1 covers the white gap */
+    padding-bottom: 6rem; /* mobile */
+}
+@media (min-width: 768px) {
+    .section-hero { padding-bottom: 8rem; }
+}
+
+.flower-single {
+    position: absolute;
+    left: 50%;
+    bottom: -8px; /* slight pull into section 2 */
+    transform: translateX(-50%);
+    width: 18vw;
+    max-width: 220px;
+    height: auto;
+    z-index: 75; /* on top of section2 */
+    pointer-events: none;
+}
+@media (min-width: 768px) {
+    .flower-single { width: 12vw; max-width: 260px; bottom: -10px; }
+}
+
+/* single flower that overlaps between section1 and section2 */
+.flower-single {
+    position: absolute;
+    left: 50%;
+    bottom: -10%; /* overlap downward into section2 */
+    transform: translateX(-50%);
+    width: 28vw;
+    max-width: 320px;
+    height: auto;
+    z-index: 70; /* above decorative/front but below content if needed */
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .flower-single { width: 20vw; bottom: -8%; }
+}
+
+@media (min-width: 1024px) {
+    .flower-single { width: 16vw; bottom: -10%; }
+}
