@@ -189,12 +189,33 @@ animation: fadeInUp 0.8s ease-out forwards !important;
     z-index: 10001; /* very high so text & arrow appear above decorative-front */
 }
 
+/* Proper centering container for hero headline */
+.hero-center {
+    position: absolute;
+    left: 50%;
+    top: 30%; /* moved slightly up so heading sits above decorative icon */
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* Tweak hero vertical placement at breakpoints for better visual balance */
+@media (min-width: 768px) {
+    .hero-center { top: 46%; }
+}
+@media (min-width: 1024px) {
+    .hero-center { top: 48%; }
+}
+
 .corner-flower {
     position: absolute;
     width: 60vw;
     max-width: 640px;
     height: auto;
-    z-index: 30; /* keep corner flowers behind decorative and content */
+    z-index: 50; /* keep corner flowers behind decorative and content */
     pointer-events: none;
     will-change: transform, opacity;
     opacity: 1;
@@ -213,10 +234,13 @@ animation: fadeInUp 0.8s ease-out forwards !important;
 .corner-flower.bottom-right {
     bottom: 0;
     right: 0;
-    transform: translate(35%, 35%) rotate(20deg);
+    width: 30%;
+    /* pin to the very edge of the viewport (no translate offset) */
+    transform: translate(0, 0) rotate(0deg);
     transform-origin: bottom right;
-    animation: flowerZoomBottomRight 2000ms cubic-bezier(.22,.9,.25,1) both;
-    animation-delay: 200ms;
+    /* entrance zoom only (no positional shift) */
+    animation: flowerZoomBottomRight 900ms cubic-bezier(.22,.9,.25,1) both;
+    animation-delay: 120ms;
 }
 
 @keyframes flowerZoomTopLeft {
@@ -232,11 +256,11 @@ animation: fadeInUp 0.8s ease-out forwards !important;
 
 @keyframes flowerZoomBottomRight {
     from {
-        transform: translate(35%, 35%) rotate(20deg) scale(1.6);
+        transform: translate(0, 0) rotate(0deg) scale(1.6);
         opacity: 0;
     }
     to {
-        transform: translate(35%, 35%) rotate(20deg) scale(1);
+        transform: translate(0, 0) rotate(0deg) scale(1);
         opacity: 1;
     }
 }

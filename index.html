@@ -33,18 +33,18 @@
 
       <!-- decorative corner flowers (partially visible) -->
       <img src="assets/flower.png" alt="" aria-hidden="true" class="corner-flower top-left" />
-      <img src="assets/flower_flip.png" alt="" aria-hidden="true" class="corner-flower bottom-right" />
+      <img src="assets/flower_flip.png" alt="" class="corner-flower bottom-right pointer-events-none" />
 
       <!-- main decorative image moved out so it can sit above all layers -->
       <img src="assets/icon_home.png" alt="" aria-hidden="true" class="decorative-front" />
 
-      <div class="absolute left-1/2 top-[30%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col w-full items-center pointer-events-none select-none content-front gap-4">
-        <h1 class="tangerine text-[#7c2b2b] leading-none z-50 mb-3 text-[48px] sm:text-[64px] md:text-[96px] lg:text-[128px] mx-auto">
+      <div class="hero-center flex flex-col w-full items-center pointer-events-none select-none content-front gap-4">
+        <h1 class="tangerine text-[#7c2b2b] leading-none text-[48px] sm:text-[64px] md:text-[96px] lg:text-[128px] mx-auto">
           The Wedding of
         </h1>
       </div>
 
-          <div class="absolute inset-0 top-[50%] flex flex-col items-center z-60 pointer-events-none transform translate-y-6 sm:translate-y-10 md:translate-y-16 lg:translate-y-20 w-full">
+          <div class="absolute inset-0 top-[50%] flex flex-col items-center z-40 pointer-events-none transform translate-y-6 sm:translate-y-10 md:translate-y-16 lg:translate-y-20 w-full">
             <h2
               class="tangerine text-white leading-none text-[28px] sm:text-[36px] md:text-[44px] lg:text-[56px] animate-float text-center w-full"
               style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);"
@@ -56,7 +56,7 @@
               31 - 05 - 2026
             </p>
 
-            <div class="mt-3 flex justify-center">
+            <!-- <div class="mt-3 flex justify-center">
               <svg
                 aria-hidden="true"
                 class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white animate-bounce animate-pulse-custom"
@@ -72,7 +72,7 @@
                   stroke-width="2"
                   d="M19 9l-7 7-7-7"
                 />
-              </svg>
+              </svg> -->
             </div>
           </div>
       <!-- single flower overlapping into section2 -->
@@ -113,7 +113,7 @@
             Widyanti Astuti
           </h3>
           
-          <p class="alice text-[#f3d7cf] text-sm sm:text-base mt-2">
+          <p class="alice text-[#f3d7cf] text-[12px] sm:text-base mt-2">
             Putri dari Bp. Yayan Wahyan &amp; Ibu Nurnaeni (Almh)
           </p>
         </div>
@@ -134,7 +134,7 @@
           >
             Gilang Nugraha S.Kom
           </h3>
-          <p class="alice text-[#f3d7cf] text-sm sm:text-base mt-2">
+          <p class="alice text-[#f3d7cf] text-[12px] sm:text-base mt-2">
             Putra dari Bp. Kusmana &amp; Ibu Uka Sukaesih (Almh)
           </p>
         </div>
