@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Undangan — Background Only</title>
+    <title>Invitation Wedding</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +22,8 @@
     <audio id="bgMusic" autoplay loop muted>
       <source src="assets/music/backsound.mp3" type="audio/mpeg" />
     </audio>
+      <!-- Fallback control for mobile autoplay restrictions -->
+      <button id="audioToggle" class="audio-toggle" aria-pressed="false" aria-label="Play background music">Play music</button>
 
     <!-- First section: full-screen background with centered content -->
     <section
